@@ -1,13 +1,12 @@
+MacOS:
+
 ➜  dapp git:(master) ✗ truffle version
 Truffle v4.0.1 (core: 4.0.1)
 Solidity v0.4.18 (solc-js)
 
 
-
-
 ➜ dapp git:(master) ✗ npm version
   npm: '4.1.2'
 
-
-  ➜  dapp git:(master) ✗ solcjs --version
+➜  dapp git:(master) ✗ solcjs --version
   0.4.19+commit.c4cbbb05.Emscripten.clang
