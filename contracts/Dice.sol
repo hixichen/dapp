@@ -29,7 +29,9 @@ contract Dice {
     admin = msg.sender;
   }
 
-  // ============ This is a game =========/
+  /* ============ This is the dice game =========
+    core function: get random number and get result.
+  */
   function bet(address addr, uint amount) public payable returns(uint256, uint) {
 
     if ( amount < minBet) {
@@ -47,7 +49,7 @@ contract Dice {
     return (round_id, player_result);
   }
 
-  // internal helper function
+  /* ==========  internal helper function =========*/
   // return a pseudo random number between lower and upper bounds
   // given the number of previous blocks it should hash.
   function random() public returns (uint64 randomNumber) {
@@ -55,12 +57,13 @@ contract Dice {
     return seed % upper;
   }
 
+  /* require admin */
   modifier onlyAdmin {
     require(msg.sender == admin);
     _;
   }
 
-  // admin setting.
+  /*========= admin configuration ========*/
   function configGas(uint gasAmount) public onlyAdmin {
     gasFee = gasAmount;
   }
@@ -77,8 +80,7 @@ contract Dice {
     admin = msg.sender;
   }
 
-  // functionality.
-
+  /*========= functionality ========*/
   function getContractBalance() public onlyAdmin returns(uint) {
       LOG_GetCurrentBalance(this, this.balance);
       player[msg.sender] = 100 finney;
@@ -98,6 +100,7 @@ contract Dice {
     LOG_TrasferToExtSuccess(admin, amount);
   }
 
+  /*===  distribution the fund. =======*/
   function safeSend(address player_addr, uint amount) public payable onlyAdmin {
       if(amount == 0){
         return;
