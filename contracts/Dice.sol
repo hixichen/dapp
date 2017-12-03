@@ -20,9 +20,9 @@ contract Dice {
   event LOG_TrasferToExtSuccess(address _from, uint _amount);
   event LOG_TransferToExtFail(address _from, uint _amount);
   event LOG_LessAmountToPlayer(address _from, uint _amount);
-  event LOG_GetCurrentBalance(address admin, uint _amount);
-  event LOG_SafeSendSuccess(address admin, uint _amount);
-  event LOG_SafeSendFail(address admin, uint _amount);
+  event LOG_GetCurrentBalance(address _from, uint _amount);
+  event LOG_SafeSendSuccess(address _from, uint _amount);
+  event LOG_SafeSendFail(address _from, uint _amount);
 
   function Dice()  public payable {
     // constructor
